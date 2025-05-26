@@ -22,13 +22,13 @@ export default function Footerss() {
         x="0px"
         y="0px"
         width="100%"
-        height="100%"
+        height="30%"
         viewBox="0 0 1600 900"
       >
         <defs>
           <path
             id="wave"
-            fill="rgba(120, 28, 207, 0.6)"
+            fill="rgba(130,41,213,0.6)"
             d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
       s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z"
           />
@@ -76,7 +76,7 @@ export default function Footerss() {
         </g>
       </svg>
     </div>
-    <footer className='bg-[#671bb0] flex flex-col justify-end h-[150px] w-full pb-6'>
+    <footer className='bg-[#8229d5] flex flex-col justify-end h-[160px] w-full pb-6 fixed bottom-0'>
  <div className='flex justify-center my-3'>
      <Avatar
         alt="Remy Sharp"

@@ -1,28 +1,41 @@
-import React from 'react';
+import React,{useState} from 'react';
+import Avatar from '@mui/material/Avatar';
+import myfotoo from "../img/farhangian.jpg";
+import { MdMenu } from "react-icons/md";
+import { Drawer } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import { IoClose } from "react-icons/io5";
 import { MdFacebook } from "react-icons/md";
 import { FaTelegram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
-import Avatar from '@mui/material/Avatar';
-import myfotoo from "../img/farhangian.jpg";
 import "../Style.css";
-function TopNav() {
 
+
+function TopNav() {
+const [open, setOpen] = useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
 
 
   return (
     <>
-   
-<nav dir='rtl' className=' md:sticky top-0 flex justify-around w-[100%] bg-transparent h-[60px]  drop-shadow-lg  py-3  mx-auto z-10 '>
+<nav dir='rtl' className=' sticky top-0 flex justify-around w-[100%] bg-transparent h-[60px]  drop-shadow-lg  py-3  mx-auto z-20 backdrop-blur-md  '>
   <div className='flex flex-row justify-center'>
       <Avatar
         alt="Remy Sharp"
         src={myfotoo}
-        sx={{ width: 45, height: 45 ,':hover':{scale:1.3}}}
+        sx={{ width:{xs:30,md:45}, height:{xs:30,md:45} ,':hover':{scale:1.3}}}
       />
-    <p className='text-2xl text-[#8229d5] font-bold mt-1 pr-2 hover:text-[#f9f9f9] hover:scale-110 '>Farhangian</p>
+    <p className='text-lg md:text-2xl text-[#8229d5] font-bold mt-0 md:mt-1 pr-2 hover:text-[#f9f9f9] hover:scale-110 '>FARHANGIAN</p>
   </div>
-  <div>
+  <div className='hidden md:flex'>
 <ul className='flex flex-row justify-center'>
   <li className='px-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>خدمات</p></li>
   <li className='px-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>درباره</p></li>
@@ -31,13 +44,71 @@ function TopNav() {
   <li className='px-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>تماس با ما</p></li>
 </ul>
    </div>
-   <div>
+   <div className='hidden md:flex'>
     
     <button className='button1 ' type='submit' >  <span className='formbutton'>   دانلود رزومه</span>   </button>
   
-    </div>     
+    </div> 
+    <div className='flex md:hidden'>
+       <div className='mr-2 ' >
+ <button
+
+onClick={handleDrawerOpen}
+
+    >
+      <MdMenu className='h-8 w-8 text-[#f9f9f9]' />
+    </button>
+   <Drawer open={open} onClose={handleDrawerClose}
+   className='backdrop-blur-lg'
+   sx={{
+flexShrink: 0, '& .MuiDrawer-paper': {bgcolor:"#1e142c",width:"300px" ,direction:"rtl",height:"92vh",borderTopRightRadius:"30px", borderBottomRightRadius:"30px",}
+   
+   }}
+     
+        anchor="left"
+     
+   >
+<div className='flex flex-col justify-start'>
+       
+         
+<div className='flex justify-between w-full self-end border-b-2 border-gray-500 my-5 pb-2 '>
+    <div className='flex flex-row justify-center mr-2 pt-2'>
+      <Avatar
+        alt="Remy Sharp"
+        src={myfotoo}
+        sx={{ width:30, height:30 ,':hover':{scale:1.3}}}
+      />
+    <p className='text-md text-[#8229d5] font-bold mt-0 md:mt-1 pr-2 hover:text-[#f9f9f9] hover:scale-110 '>FARHANGIAN</p>
+  </div>
+            <IconButton 
+             title='Title'
+            onClick={handleDrawerClose}>
+        <IoClose className='h-5 w-5 text-[#f9f9f9] ml-2  hover:text-[#8229d5]'/> 
+          </IconButton>
+         </div>   
+     
+<ul className='flex flex-col justify-center bg-transparent pr-5 '>
+  <li><p className='text-sm py-5 text-gray-500'>منو</p></li>
+  <li className='py-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>خدمات</p></li>
+  <li className='py-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>درباره</p></li>
+  <li className='py-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>نمونه کار</p></li>
+  <li className='py-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>مهارت</p></li>
+  <li className='py-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>تماس با ما</p></li>
+  <li><p className='text-sm py-5 text-gray-500'>شبکه های اجتمایی</p></li>
+ <li className='flex flex-row'><MdFacebook className='my-2.5 w-6 h-6 text-[#f9f9f9] font-bold hover:text-[#8229d5] hover:scale-150'/>
+ <p className='text-md font-bold text-[#f9f9f9] mr-2 mt-1.5  hover:text-[#8229d5]'>فیس بوک</p></li>
+<li className='flex flex-row'><FaLinkedin  className='my-2.5 w-5 h-5 text-[#f9f9f9] font-bold  hover:text-[#8229d5] hover:scale-150'/>
+ <p className='text-md font-bold text-[#f9f9f9] mr-2 mt-1.5  hover:text-[#8229d5]'>لینکدین </p></li>
+  <li className='flex flex-row'><FaTelegram  className='my-2.5 w-5 h-5 text-[#f9f9f9] font-bold  hover:text-[#8229d5] hover:scale-150'/>
+   <p className='text-md font-bold text-[#f9f9f9] mr-2 mt-1.5  hover:text-[#8229d5]'> تلگرام</p></li>
+ <li className='flex flex-row'><FaGithubSquare  className='my-2.5 w-5 h-5 text-[#f9f9f9] font-bold hover:text-[#8229d5] hover:scale-150 '/>
+  <p className='text-md font-bold text-[#f9f9f9] mr-2 mt-1.5  hover:text-[#8229d5]'> گیت هاب</p></li>
+</ul>
+  
+</div>   </Drawer>
+ </div>
+      </div>    
         </nav>
- 
 
 
 
