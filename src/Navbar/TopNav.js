@@ -9,6 +9,7 @@ import { MdFacebook } from "react-icons/md";
 import { FaTelegram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
+import { NavLink } from 'react-router-dom';
 import "../Style.css";
 
 
@@ -26,8 +27,8 @@ const [open, setOpen] = useState(false);
 
   return (
     <>
-<nav dir='rtl' className=' sticky top-0 flex justify-around w-[100%] bg-transparent h-[60px]  drop-shadow-lg  py-3  mx-auto z-20 backdrop-blur-md  '>
-  <div className='flex flex-row justify-center'>
+<nav dir='rtl' className=' sticky top-0 flex justify-between w-[100%] bg-transparent h-[70px]  drop-shadow-lg  py-3  mx-auto z-20 backdrop-blur-md  '>
+  <div className='flex flex-row justify-center mr-6'>
       <Avatar
         alt="Remy Sharp"
         src={myfotoo}
@@ -35,22 +36,21 @@ const [open, setOpen] = useState(false);
       />
     <p className='text-lg md:text-2xl text-[#8229d5] font-bold mt-0 md:mt-1 pr-2 hover:text-[#f9f9f9] hover:scale-110 '>FARHANGIAN</p>
   </div>
-  <div className='hidden md:flex'>
+  <div className='hidden md:flex mt-1' >
 <ul className='flex flex-row justify-center'>
-  <li className='px-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>خدمات</p></li>
-  <li className='px-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>درباره</p></li>
-  <li className='px-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>نمونه کار</p></li>
-  <li className='px-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>مهارت</p></li>
-  <li className='px-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>تماس با ما</p></li>
+ <NavLink to={"/aboutus"}><li className='px-3'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>درباره</p></li></NavLink>
+  <NavLink><li className='px-3'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>نمونه کار</p></li></NavLink>
+  <NavLink to={"/skill"}><li className='px-3'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>مهارت</p></li></NavLink>
+  <NavLink><li className='px-3'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>تماس با ما</p></li></NavLink>
 </ul>
    </div>
-   <div className='hidden md:flex'>
+   <div className='hidden md:flex ml-4'>
     
     <button className='button1 ' type='submit' >  <span className='formbutton'>   دانلود رزومه</span>   </button>
   
     </div> 
     <div className='flex md:hidden'>
-       <div className='mr-2 ' >
+       <div className='ml-4 ' >
  <button
 
 onClick={handleDrawerOpen}
@@ -61,7 +61,7 @@ onClick={handleDrawerOpen}
    <Drawer open={open} onClose={handleDrawerClose}
    className='backdrop-blur-lg'
    sx={{
-flexShrink: 0, '& .MuiDrawer-paper': {bgcolor:"#1e142c",width:"300px" ,direction:"rtl",height:"92vh",borderTopRightRadius:"30px", borderBottomRightRadius:"30px",}
+flexShrink: 0, '& .MuiDrawer-paper': {bgcolor:"#1e142c",width:"300px" ,direction:"rtl",height:"96vh",borderTopRightRadius:"30px", borderBottomRightRadius:"30px",}
    
    }}
      
@@ -89,12 +89,11 @@ flexShrink: 0, '& .MuiDrawer-paper': {bgcolor:"#1e142c",width:"300px" ,direction
      
 <ul className='flex flex-col justify-center bg-transparent pr-5 '>
   <li><p className='text-sm py-5 text-gray-500'>منو</p></li>
-  <li className='py-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>خدمات</p></li>
-  <li className='py-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>درباره</p></li>
-  <li className='py-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>نمونه کار</p></li>
-  <li className='py-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>مهارت</p></li>
-  <li className='py-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>تماس با ما</p></li>
-  <li><p className='text-sm py-5 text-gray-500'>شبکه های اجتمایی</p></li>
+   <NavLink to={"/aboutus"}><li className='py-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>درباره</p></li></NavLink>
+  <NavLink><li className='py-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>نمونه کار</p></li></NavLink>
+  <NavLink to={"/skill"}><li className='py-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>مهارت</p></li></NavLink>
+  <NavLink><li className='py-2.5'><p className='text-md font-bold text-white hover:text-[#8229d5] hover:scale-110'>تماس با ما</p></li></NavLink>
+ <li><p className='text-sm py-5 text-gray-500'>شبکه های اجتمایی</p></li>
  <li className='flex flex-row'><MdFacebook className='my-2.5 w-6 h-6 text-[#f9f9f9] font-bold hover:text-[#8229d5] hover:scale-150'/>
  <p className='text-md font-bold text-[#f9f9f9] mr-2 mt-1.5  hover:text-[#8229d5]'>فیس بوک</p></li>
 <li className='flex flex-row'><FaLinkedin  className='my-2.5 w-5 h-5 text-[#f9f9f9] font-bold  hover:text-[#8229d5] hover:scale-150'/>

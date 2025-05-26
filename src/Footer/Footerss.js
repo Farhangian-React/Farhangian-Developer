@@ -13,7 +13,7 @@ export default function Footerss() {
  <>
  <div className='body'>
   
-    <div class="background">
+    <div class="background ">
       
       <svg
         version="1.1"
@@ -76,7 +76,7 @@ export default function Footerss() {
         </g>
       </svg>
     </div>
-    <footer className='bg-[#8229d5] flex flex-col justify-end h-[160px] w-full pb-6 fixed bottom-0'>
+    <footer className='bg-[#8229d5] flex flex-col justify-end h-[160px] w-full pb-6 fixed bottom-0 z-20'>
  <div className='flex justify-center my-3'>
      <Avatar
         alt="Remy Sharp"
